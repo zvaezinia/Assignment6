@@ -9,11 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
     root.appendChild(textarea); // Add the textarea to root element
     root.appendChild(submitButton); // Add the submit button to root elementt
 
+    const frequency = {}; // Object to store word counts
+
     // Handler for  the submit button click
     submitButton.addEventListener("click", function() {
         const text = textarea.value.trim(); // Get and trim text
         const words = text.split(" "); // Split into words
-        const frequency = {}; // Object to store word counts
 
         // Count frequencies
         words.forEach((word) => {
