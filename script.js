@@ -13,12 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Handler for  the submit button click
     submitButton.addEventListener("click", function() {
+        frequency = {}; // Reset the frequency object if needed or keep it to accumulate counts
         const text = textarea.value.trim(); // Get and trim text
-        const words = text.split(/\s+/); // Split into words by any whitespace
+        const cleanedText = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""); // Remove punctuation
+        const words = cleanedText.split(/\s+/); // Split into words by any whitespace
 
         // Count frequencies
         words.forEach((word) => {
-            const cleanWord = word.toLowerCase(); // Normalize  so  all words are lowercase
+            const cleanWord = word.toLowerCase().trim(); // Normalize to lowercase and trim spaces
             if (cleanWord) {
                 frequency[cleanWord] = (frequency[cleanWord] || 0) + 1; // Increase the count by 1
             }
