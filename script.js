@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Handler for  the submit button click
     submitButton.addEventListener("click", function() {
         const text = textarea.value.trim(); // Get and trim text
-        const words = text.split(" "); // Split into words
+        const words = text.split(/\s+/); // Split into words by any whitespace
 
         // Count frequencies
         words.forEach((word) => {
